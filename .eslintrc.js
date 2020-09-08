@@ -2,8 +2,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'eslint:recommended',
-    'prettier',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: 'babel-eslint',
   plugins: ['jsx-a11y'],
@@ -21,6 +21,11 @@ module.exports = {
   },
   rules: {
     'react/no-unescaped-entities': ['error', { forbid: ['>', '"', '}'] }],
+
+    //TS rules'
+    '@typescript-eslint/explicit-function-return-type': 'off', //Avoid mentioning react component's return type
+    '@typescript-eslint/no-use-before-define': ['error', { functions: false }], //Functions can be defined after usage.
+    '@typescript-eslint/no-non-null-assertion': 'warn',
 
     curly: 'error',
     eqeqeq: 'error',
